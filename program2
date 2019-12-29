@@ -1,0 +1,27 @@
+import java.util.Map;//Map使うためにパッケージをインポートしておく
+import java.util.TreeMap;//キーを昇順に並べたいのでTreeMapクラスを使う（HashMap じゃないよ
+
+public class Main {//ファイル名がMain.javaなので、クラス名もMainでっ
+public static void main(String[] args) throws Exception {//mainメソッド。一番初めに呼び出される
+
+ Map<Integer, String> tmap = new TreeMap<Integer, String>();// Mapの宣言。型引数を指定してTreeMapクラスのインスタンスオブジェクトを生成。
+    tmap.put(3, "Fizz");//割る数3と値Fizzをputメソッドでtmapに追加していく
+    tmap.put(5, "Buzz");//割る数5と値Buzzをputメソッドでtmapに追加していく
+
+for(int i = 1;i<=50;i++){//i=1からスタートして、{}が正しい限りはiが50になるまでiを１個ずつ増やしながら繰り返す
+
+ String kekka =""; // 結果の表示のための文字列型変数kekkaを作って空の値を代入
+ for (Integer warukazu : tmap.keySet()) {//tmapから要素のキー部分を取り出して
+    if(i%warukazu==0){
+    //該当するキー（３か５）の値部分を取り出して、kekkaに追記（代入じゃないよ）
+    kekka += tmap.get(warukazu) ;
+     }
+    }
+
+ if(kekka==""){//iが３でも５でも割り切れないケースの処理
+    kekka = String.valueOf(i);
+    } 
+    System.out.println(kekka);　//kekkaの内容を表示
+}
+
+}}
